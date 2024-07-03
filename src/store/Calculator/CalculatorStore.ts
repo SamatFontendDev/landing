@@ -1,7 +1,7 @@
 import { makeAutoObservable } from 'mobx'
 import { Rates } from '../../services/Courses/types'
 import CoursesService from '../../services/Courses/CoursesService'
-import { Currencies, Periods, Prices, Tarrifs } from './types'
+import { Periods, Prices, Tarrifs } from './types'
 
 class CalculatorStore {
     courses: Rates | null = null
@@ -57,7 +57,6 @@ class CalculatorStore {
                 ? true
                 : false
         const { selectedCurrency, selectedPeriod, selectedTarif } = this
-        let { amount, amountDiscont } = this
 
         if (
             selectedTarif === Tarrifs.standart &&
