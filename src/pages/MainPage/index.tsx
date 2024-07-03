@@ -2,13 +2,12 @@ import { useEffect, useState } from 'react'
 import MainPageComponent from './MainPageComponent'
 import { observer } from 'mobx-react-lite'
 import CalculatorStore from '../../store/Calculator/CalculatorStore'
-import { currencies, periods, tariffs } from '../../utils/constans/data'
-import { findValue } from '../../utils/functions'
+import { SimpleEntity } from '../../components/shared/Select/types'
 
 const MainPage: React.FC = () => {
-    const [tarif, setTarif] = useState<string | undefined>()
-    const [currency, setCurrency] = useState<string | undefined>()
-    const [period, setPeriod] = useState<string | undefined>()
+    const [tarif, setTarif] = useState<SimpleEntity | undefined>()
+    const [currency, setCurrency] = useState<SimpleEntity | undefined>()
+    const [period, setPeriod] = useState<SimpleEntity | undefined>()
     const {
         courses,
         isLoadingCourses,
@@ -24,24 +23,24 @@ const MainPage: React.FC = () => {
     }, [])
     const notReady: boolean = tarif && currency && period ? false : true
 
-    const changeTarif = (val: string) => {
+    const changeTarif = (val: SimpleEntity) => {
         setTarif(val)
-        CalculatorStore.setSelectedTarif(findValue(tariffs, val))
+        CalculatorStore.setSelectedTarif(val.value)
         if (!notReady) {
             CalculatorStore.calculator()
         }
     }
 
-    const changeCurrency = (val: string) => {
+    const changeCurrency = (val: SimpleEntity) => {
         setCurrency(val)
-        CalculatorStore.setSelectedCurrency(findValue(currencies, val))
+        CalculatorStore.setSelectedCurrency(val.value)
         if (!notReady) {
             CalculatorStore.calculator()
         }
     }
-    const changePeriod = (val: string) => {
+    const changePeriod = (val: SimpleEntity) => {
         setPeriod(val)
-        CalculatorStore.setSelectedPeriod(findValue(periods, val))
+        CalculatorStore.setSelectedPeriod(val.value)
         if (!notReady) {
             CalculatorStore.calculator()
         }

@@ -7,10 +7,10 @@ import { ReactSpringSelectOptions } from '../../../utils/reactSpringOptions/sele
 import useOnClickOutside from '../../../hooks/useOnClickOutside'
 
 interface Props {
-    selected?: string | null
+    selected?: SimpleEntity | null
     placeholder?: string
     options: SimpleEntity[]
-    onChange: (value: string) => void
+    onChange: (value: SimpleEntity) => void
     className?: string
     label?: string
     disabled?: boolean
@@ -34,11 +34,11 @@ const Select: React.FC<Props> = (props: Props): React.ReactElement => {
     useOnClickOutside(refModel, () => setOpen(false))
 
     const openList = (): void => {
-        setOpen(true)
+        setOpen(prev => !prev)
     }
 
-    const handleClickItem = (value: string): void => {
-        if (value !== selected) {
+    const handleClickItem = (value: SimpleEntity): void => {
+        if (value.text !== selected?.text) {
             onChange(value)
         }
 
@@ -47,6 +47,7 @@ const Select: React.FC<Props> = (props: Props): React.ReactElement => {
 
     return (
         <div
+            ref={refModel}
             className={classnames(
                 styles.wrapper,
                 className,
@@ -57,7 +58,8 @@ const Select: React.FC<Props> = (props: Props): React.ReactElement => {
 
             <div className={styles.block} onClick={openList}>
                 {selected &&
-                    options.filter(item => item.value === selected)[0].text}
+                    options.filter(item => item.value === selected.value)[0]
+                        .text}
                 {placeholder && !selected && placeholder}
                 {!placeholder && !selected && 'Placeholder'}
             </div>
@@ -65,21 +67,17 @@ const Select: React.FC<Props> = (props: Props): React.ReactElement => {
             {transition(
                 (tStyles, state) =>
                     state && (
-                        <animated.div
-                            style={tStyles}
-                            className={styles.list}
-                            ref={refModel}
-                        >
+                        <animated.div style={tStyles} className={styles.list}>
                             {options.map(item => (
                                 <div
                                     key={item.value}
                                     className={classnames(
                                         styles.listItem,
-                                        item.value === selected
+                                        item.value === selected?.value
                                             ? styles.listItemActive
                                             : ''
                                     )}
-                                    onClick={() => handleClickItem(item.value)}
+                                    onClick={() => handleClickItem(item)}
                                 >
                                     {item.text}
                                 </div>

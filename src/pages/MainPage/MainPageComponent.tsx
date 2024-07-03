@@ -1,17 +1,18 @@
 import Loader from '../../components/UI/Loader'
 import Button from '../../components/shared/Button'
 import Select from '../../components/shared/Select'
+import { SimpleEntity } from '../../components/shared/Select/types'
 import { currencies, periods, tariffs } from '../../utils/constans/data'
 import Amount from './Amount'
 import s from './s.module.scss'
 
 interface Props {
-    changeTarif: (val: string) => void
-    tarif: string | undefined
-    changeCurrency: (val: string) => void
-    currency: string | undefined
-    changePeriod: (val: string) => void
-    period: string | undefined
+    changeTarif: (val: SimpleEntity) => void
+    tarif: SimpleEntity | undefined
+    changeCurrency: (val: SimpleEntity) => void
+    currency: SimpleEntity | undefined
+    changePeriod: (val: SimpleEntity) => void
+    period: SimpleEntity | undefined
     disabled: boolean
     error: boolean
     loadingCourses: boolean
