@@ -1,0 +1,36 @@
+@import '/src/scss/variables.scss';
+.section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    @media ($tablet) {
+        padding-top: 56px;
+        padding-bottom: 56px;
+    }
+}
+.list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 32px;
+    color: var(--title-color);
+    @media ($tablet) {
+        grid-template-columns: 1fr 1fr;
+    }
+    @media ($phone) {
+        grid-template-columns: 1fr;
+    }
+}
+.title {
+    margin-bottom: 61px;
+    @media ($phone) {
+        margin-bottom: 26px;
+    }
+}
+.icon {
+    margin-bottom: 19px;
+}
+.subtitle {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    margin-bottom: 4px;
+}

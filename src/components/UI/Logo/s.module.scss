@@ -1,0 +1,33 @@
+.logo {
+    display: flex;
+    gap: 9px;
+    text-decoration: none;
+    align-items: center;
+}
+.circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+.circleBlue {
+    background-color: #2a6cea;
+    z-index: 1;
+    position: relative;
+}
+.circleWhite {
+    background-color: #fff;
+    margin-left: -10px;
+}
+.text {
+    font-size: 20px;
+    font-weight: 600;
+}
+.textBlack {
+    color: #191c1f;
+}
+.textWhite {
+    color: #fff;
+}
+.circles {
+    display: flex;
+}

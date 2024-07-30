@@ -1,0 +1,37 @@
+@import '/src/scss/variables.scss';
+
+.section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    @media ($tablet) {
+        padding-top: 56px;
+        padding-bottom: 56px;
+    }
+}
+.title {
+    margin-bottom: 66px;
+}
+.wrapper {
+    display: grid;
+    gap: 49px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 148px;
+    @media ($tablet) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+.textBlocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    @media ($tablet) {
+        grid-template-columns: 1fr;
+    }
+}
+.subtitle {
+    line-height: 32px;
+    font-weight: 600;
+    color: var(--title-color);
+}

@@ -1,0 +1,25 @@
+.wrapper {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    border: 2px solid #c2c8cd;
+    cursor: pointer;
+    input {
+        display: none;
+    }
+}
+.active {
+    background-color: #2a6cea;
+    border: none;
+}
+.checkbox {
+    gap: 16px;
+    display: flex;
+    align-items: center;
+    span {
+        color: #191c1f;
+    }
+}

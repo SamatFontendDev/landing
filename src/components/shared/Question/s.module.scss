@@ -1,0 +1,49 @@
+.top {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    &:hover {
+        .title {
+            transition: 0.3s;
+            color: #2a6cea;
+        }
+        .circle {
+            transition: 0.3s;
+            border-color: #2a6cea;
+        }
+        path {
+            transition: 0.3s;
+            fill: #2a6cea;
+        }
+    }
+}
+.title {
+    transition: 0.3s;
+    font-size: 18px;
+    line-height: 32px;
+    font-weight: 600;
+    color: var(--title-color);
+    cursor: pointer;
+}
+.circle {
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(25, 28, 31);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+}
+.plus {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+.active {
+    transition: 0.3s;
+    transform: rotate(135deg);
+}

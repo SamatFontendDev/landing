@@ -1,0 +1,37 @@
+.header {
+    position: relative;
+    z-index: 2;
+    padding-top: 28px;
+    padding-bottom: 28px;
+}
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.navList {
+    display: flex;
+    gap: 24px;
+}
+.navItem {
+    color: #fff;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s;
+    &:hover {
+        transition: 0.3s;
+        border-bottom: 1px solid #fff;
+    }
+}
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 25px;
+    span {
+        width: 22px;
+        height: 2px;
+        background-color: #fff;
+    }
+}
+.navItem {
+    cursor: pointer;
+}

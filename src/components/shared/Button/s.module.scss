@@ -1,24 +1,25 @@
 .button {
-    font-size: 16px;
+    font-size: 20px;
+    line-height: 24px;
+    padding: 20px 40px;
     cursor: pointer;
-    width: 150px;
-    border-radius: 8px;
+    border-radius: 4px;
     border: none;
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px 24px;
-    background-color: var(--primary-color);
-    transition: 0.3s;
-    &:hover {
-        background-color: darken(#2261f6, 4);
-        transition: 0.3s;
-    }
+    font-weight: 600;
 }
 
 .disabled {
-    background: rgba(229, 229, 229, 0.2);
-    color: #8e8e8e;
     pointer-events: none;
+}
+.white {
+    background-color: #fff;
+    color: rgba(25, 28, 31, 1);
+}
+.blue {
+    background-color: #2a6cea;
+    color: #fff;
 }
